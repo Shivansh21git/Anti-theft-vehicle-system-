@@ -1,0 +1,53 @@
+#include <SoftwareSerial.h>
+#include "Wire.h"          
+#include "MPU6050.h"
+
+SoftwareSerial mySerial(9, 10);
+MPU6050 mpu;
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
+int buzzer = 13;
+
+struct MyData {
+  byte X;
+  byte Y;
+};
+MyData data;
+
+void setup()
+{
+  Serial.begin(9600);
+  Wire.begin();
+  mpu.initialize();
+  mySerial.begin(9600); 
+  mySerial.begin(9600);   // Setting the baud rate of GSM Module  
+  Serial.begin(9600);    // Setting the baud rate of Serial Monitor (Arduino)
+  delay(100);
+}
+
+
+void loop()
+{
+  mpu.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+  data.X = map(ax, -17000, 17000, 0, 255 ); // X axis data
+  data.Y = map(ay, -17000, 17000, 0, 255);  // Y axis data
+  //delay(500);
+  Serial.print("Axis X = ");
+  Serial.print(data.X);
+  Serial.print("  ");
+  Serial.print("Axis Y = ");
+  Serial.println(data.Y);
+ 
+ if (data.Y < 145) { //gesture : up
+  mySerial.println("ATD+ +919012458028;"); 
+  delay(20000); // wait for 20 seconds...
+  mySerial.println("ATH"); //hang up
+   //tone(buzzer, 1000);
+//delay(100); 
+}
+    
+if (data.Y > 145&&data.Y < 155) {//gesture : left
+digitalWrite(buzzer, LOW);
+   }
+   
+}
