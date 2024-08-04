@@ -1,5 +1,5 @@
 # ATVS
-ATVS (Anti Theft Vehicle System) is an IoT-based solution designed for 2-wheelers to detect motion gestures and send alerts via GSM. The system utilizes an MPU6050 sensor to detect specific gestures and respond accordingly, such as making a phone call when an "up" gesture is detected, providing an effective anti-theft mechanism.
+ATVS (Anti Theft Vehicle System) is an IoT-based solution designed for 2-wheelers to detect motion gestures and send alerts via GSM. The system utilizes an MPU6050 sensor to detect specific gestures and respond accordingly, such as making a phone call when an "up" gesture is detected, providing an effective anti-theft mechanism. 
 
 # Features
 Detects motion gestures using the MPU6050 sensor.
