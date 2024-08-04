@@ -7,14 +7,14 @@ Maps sensor data to gesture commands.
 Sends alerts via GSM module based on detected gestures.
 Provides real-time sensor data via Serial Monitor.
 
-#Components
+# Components
 Arduino
 MPU6050 Sensor
 GSM Module
 Buzzer
 Various resistors and wires
 
-#Usage
+# Usage
 Setup the hardware according to the provided circuit diagram.
 Upload the code to the Arduino.
 Monitor real-time data on the Serial Monitor and observe the actions taken based on gestures.
